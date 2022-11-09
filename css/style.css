@@ -1,4 +1,4 @@
-/***************************** text and link styling ************************/
+/***************************** TEKST OG LINKER ************************/
 
 h1 {
   font-family: 'Montserrat', sans-serif;
@@ -100,7 +100,7 @@ nav a {
   font-weight: bold;
 }
 
-/********************** FORM STYLING ************************/
+/********************** STYLER FORM TAG ************************/
 
 
 /*Chrome*/
@@ -150,7 +150,7 @@ form {
 
 
 
-/**************************  Elements styling    *****************************/
+/**************************  Styler de ulike elementene    *****************************/
 
 body {
   margin: 0 auto;
@@ -182,7 +182,7 @@ footer {
 }
 
 
-/*************************  Specific elements styling  ***********************/
+/*************************  Styler spesifikke elementer ***********************/
 
 .logo {
   display: flex;

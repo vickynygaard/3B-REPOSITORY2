@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!-- DOKUMENT INFORMASJON -->
 <html lang="en"><head>
     <title>Gruppe oppgave - How We Roll</title>
     <meta charset="utf-8">
@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
   </head>
   <body>
+<!-- HEADER MED NAVIGASJONSBAR OG LOGO, HVIS DU TRYKKER PÅ DEN KOMMER DU TILBAKE TIL FREMSIDEN (INDEX) -->
     <header>
         <div class="logo">
         <a href="index.html"><img src="images/uialogo1.jpg" height="60px" alt="UIA logo"></a>
@@ -22,6 +23,7 @@
       </nav>
     </header>
     <main>
+  <!-- FREMSIDE TOP SEKSJON PRESENTASJON AV GRUPPE OG PROSJEKT-->
       <section class="top-section">
         <div class="title-text">
           <h1>Gruppe prosjekt <br><p>"How We Roll"</p></h1>
@@ -29,13 +31,13 @@
      </section>
     </main>
 
-
-    <div class="container centered"></div>
+  <!-- WEB FORM KARTLEGGINGSSKJEMA SOM VISER TO YTTERPUNKTER  -->
+  <!-- SENTRERER FORM -->
+    <div class="container centered"></div> 
  <form>
-      
-
-        <p><label for="navn">Fornavn</label>
-          <input type="text" name="navn" id="navn" /></p>
+  <!-- INPUT BOKS TIL NAVN -->
+      <p><label for="navn">Fornavn</label> 
+      <input type="text" name="navn" id="navn" /></p>
 
      <p><b>Hvilket av alternativene foretrekker du?</b></p>
 
@@ -106,24 +108,24 @@
   <label for="oppgaven">Scrum</label>
 </p>
 
-<!--Send knappen-->
+<!--Send knapp-->
 <button type="submit">Send</button>
 
 </form>
 
 <hr>
 <p>JSON Output</p>
-<!--Et lite output console for å vise JSON dataen-->
+<!--Output console for å vise JSON dataen-->
 <div>
-    <!--Her skal JSON data som vi får fra responsen vises-->
+<!--Her viser vi JSON data som vi får fra responsen-->
     <pre id="output"></pre>
 
-    <!--Lenk til JSON data på serveren. Brukes til rapporten-->
+<!--Lenk til JSON data på serveren. -->
     <a id="json-api" href="" target="_blank"></a>
     <div>
 </div>
 
-
+<!-- JavaScript som tar i mot og returnerer svar i Json format- hentet fra developer mozilla.org-->
 
 <script>
 async function postData(url = '', data = {}) {
@@ -160,10 +162,8 @@ async function postData(url = '', data = {}) {
    form.addEventListener('submit', handleSubmit);
 
 </script>
-    
-
 </body>
-
+<!-- FOOTER DEL 1 SOM DELER BUNNSEKSJON INN I TRE VERTIKALE DELER -->
 <footer>
   <section class="footer-top">
     <div class="card">
@@ -192,6 +192,7 @@ async function postData(url = '', data = {}) {
       
     </div>
   </section>
+  <!-- FOOTER DEL2 -->
   <section class="footer-end">
     
     <p>2022 @ All rights reserved</p>

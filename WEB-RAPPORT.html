@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!-- DOKUMENT INFORMASJON -->
 <html lang="en"><head>
     <title>How We Roll - WEB-RAPPORT</title>
     <meta charset="utf-8">
@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
   </head>
   <body>
+  <!-- HEADER MED NAVIGASJONSBAR OG LOGO, HVIS DU TRYKKER PÅ DEN KOMMER DU TILBAKE TIL FREMSIDEN (INDEX) -->
     <header>
       <div class="logo">
         <a href="index.html"><img src="images/uialogo1.jpg" height="60px" alt="UIA logo"></a>
@@ -23,21 +24,22 @@
       </nav>
     </header>
     
-
+ <!-- SKJEMA SOM VISER DATA HENTET FRA WEB-FORM -->
       <body>
       <main>
         <h1 class="overskrift">Felles-Skapet</h1>
-
+ <!-- CANVAS 500X800 -->
         <section class="canvas">
           <canvas id="report"><canvas></canvas>
-          
+  <!-- JAVASCRIPT HENTER CANVAS -->        
           <script>
       
                  var canvas = document.getElementById('report');
                   canvas.width  = 810;
                   canvas.height = 500;
                   var context = canvas.getContext('2d');
-
+  /* 1. Her legger gruppemedlemmene inn sin trx id for å vise frem sine data  */
+  /* 2. Tekst på canvas ulike ytterpunkt */
                  fetch("https://bacit.info/hwr/20221109092536-d1713230056f555f3867b008d906ff74.json", {cache: 'no-cache'})
                   .then(response => response.json())
                   .then(data => {
@@ -67,7 +69,8 @@
                     context.fillText('Scrum', 425, 432);
       
       
-                    // Key showing which color is which group member
+                    /* Kode som viser hvilken farge hvert enkelt gruppemedlem bruker til å vise frem sine data */
+                    // DENNE KODE BLOKKEN MÅ GJENTAS VED HVERT GRUPPE MEDLEM, FARGE, NAVN OG PLASSERING AV SIRKEL ENDRES
                     context.font = '20x Arial';
                     context.fillStyle = "#000000";
                     context.fillText('Iselin', 750, 30);
@@ -82,57 +85,58 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Morgenfugl eller Nattugle -- Draw line
+                    // Morgenfugl eller Nattugle -- Tegn strek
+                    // DISSE LINJENE TRENGER BARE Å TEGNES EN GANG
                     context.beginPath();
                     context.moveTo(200,30);
                     context.lineTo(400,30);
       
-                    // Jobbe sammen eller tenke alene -- Draw line
+                    // Jobbe sammen eller tenke alene -- Tegn strek
                     context.moveTo(200,70);
                     context.lineTo(400,70);
                     context.stroke();
       
-                    // Gå i detalj eller hoppe rett i det -- Draw line
+                    // Gå i detalj eller hoppe rett i det -- Tegn strek
                     context.moveTo(200,110);
                     context.lineTo(400,110);
                     context.stroke();
       
-                    // Snakke om det eller Gå videre -- Draw line
+                    // Snakke om det eller Gå videre -- Tegn strek
                     context.moveTo(200,150);
                     context.lineTo(400,150);
                     context.stroke();
       
-                    // Forstå oppgaven i plenum eller Forstå oppgaven alene-- Draw line
+                    // Forstå oppgaven i plenum eller Forstå oppgaven alene-- Tegn strek
                     context.moveTo(200,190);
                     context.lineTo(400,190);
                     context.stroke();
       
-                    // Avtale Samtale eller Ta en samtale når som helst -- Draw line
+                    // Avtale Samtale eller Ta en samtale når som helst -- Tegn strek
                     context.moveTo(200,230);
                     context.lineTo(400,230);
                     context.stroke();
       
-                    // Video samtale eller Tekst kommunikasjon -- Draw line
+                    // Video samtale eller Tekst kommunikasjon -- Tegn strek
                     context.moveTo(200,270);
                     context.lineTo(400,270);
                     context.stroke();
       
-                    // Jobbe 09-17 eller Ingen fast timeplan -- Draw line
+                    // Jobbe 09-17 eller Ingen fast timeplan -- Tegn strek
                     context.moveTo(200,310);
                     context.lineTo(400,310);
                     context.stroke();
       
-                    // Fem korte arbeidsdager eler Fire lange -- Draw line
+                    // Fem korte arbeidsdager eler Fire lange -- Tegn strek
                     context.moveTo(200,350);
                     context.lineTo(400,350);
                     context.stroke();
       
-                    // Tidlig lunsj eller Sen lunsj -- Draw line
+                    // Tidlig lunsj eller Sen lunsj -- Tegn strek
                     context.moveTo(200,390);
                     context.lineTo(400,390);
                     context.stroke();
                     
-                    // Kanban eller Scrum -- Draw line
+                    // Kanban eller Scrum -- Tegn strek
                     context.moveTo(200,430);
                     context.lineTo(400,430);
                     context.stroke();
@@ -143,8 +147,9 @@
                     
       
       
-                    // Morgenfugl eller nattugle -- Draw circle
-                    var X = 200 + parseInt(data.natteravn, 10);
+                    // Morgenfugl eller nattugle -- Tegn sirkel
+                    // Sirkel må tegnes for å vise riktig data, dette må gjøres på hvert spørsmål/svar. Canvas er satt til å starte på 200 + data fra web form. 
+                    var X = 200 + parseInt(data.natteravn, 10); //Henter data fra web-form
                     var Y = 30;
                     var R = 5;
                     context.beginPath();
@@ -155,8 +160,8 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Jobbe sammen eller tenke alene -- Draw circle
-                    var X = 200 + parseInt(data.jobbesammen, 10);
+                    // Jobbe sammen eller tenke alene -- Tegn sirkel
+                    var X = 200 + parseInt(data.jobbesammen, 10); //Henter data fra web-form
                     var Y = 70;
                     var R = 5;
                     context.beginPath();
@@ -167,8 +172,8 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Gå i detalj eller hoppe rett i det -- Draw circle
-                    var X = 200 + parseInt(data.grundig, 10);
+                    // Gå i detalj eller hoppe rett i det -- Tegn sirkel
+                    var X = 200 + parseInt(data.grundig, 10); //Henter data fra web-form
                     var Y = 110;
                     var R = 5;
                     context.beginPath();
@@ -179,8 +184,8 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Gå i detalj eller hoppe rett i det -- Draw circle
-                    var X = 200 + parseInt(data.snakke, 10);
+                    // Gå i detalj eller hoppe rett i det -- Tegn sirkel
+                    var X = 200 + parseInt(data.snakke, 10); //Henter data fra web-form
                     var Y = 150;
                     var R = 5;
                     context.beginPath();
@@ -191,8 +196,8 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Forstå oppgaven i plenum eller forstå oppgaven alene -- Draw circle
-                    var X = 200 + parseInt(data.oppgaven, 10);
+                    // Forstå oppgaven i plenum eller forstå oppgaven alene -- Tegn sirkel
+                    var X = 200 + parseInt(data.oppgaven, 10); //Henter data fra web-form
                     var Y = 190;
                     var R = 5;
                     context.beginPath();
@@ -203,8 +208,8 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Avtale samtale eller ta en samtale når som helst-- Draw circle
-                    var X = 200 + parseInt(data.avbrutt, 10);
+                    // Avtale samtale eller ta en samtale når som helst-- Tegn sirkel
+                    var X = 200 + parseInt(data.avbrutt, 10); //Henter data fra web-form
                     var Y = 230;
                     var R = 5;
                     context.beginPath();
@@ -215,8 +220,8 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Video samtale eller tekst kommunikasjon-- Draw circle
-                    var X = 200 + parseInt(data.video, 10);
+                    // Video samtale eller tekst kommunikasjon-- Tegn sirkel
+                    var X = 200 + parseInt(data.video, 10); //Henter data fra web-form
                     var Y = 270;
                     var R = 5;
                     context.beginPath();
@@ -227,8 +232,8 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Jobbe 09-17 eller ingen fast timeplan -- Draw circle
-                    var X = 200 + parseInt(data.jobbe, 10);
+                    // Jobbe 09-17 eller ingen fast timeplan -- Tegn sirkel
+                    var X = 200 + parseInt(data.jobbe, 10); //Henter data fra web-form
                     var Y = 310;
                     var R = 5;
                     context.beginPath();
@@ -239,8 +244,8 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Tidlig eller sen lunsj -- Draw circle
-                    var X = 200 + parseInt(data.tidlig, 10);
+                    // Tidlig eller sen lunsj -- Tegn sirkel
+                    var X = 200 + parseInt(data.tidlig, 10); //Henter data fra web-form
                     var Y = 350;
                     var R = 5;
                     context.beginPath();
@@ -251,8 +256,8 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Fem korte eller fire lange arbeidsdager-- Draw circle
-                    var X = 200 + parseInt(data.arbeidsdager, 10);
+                    // Fem korte eller fire lange arbeidsdager-- Tegn sirkel
+                    var X = 200 + parseInt(data.arbeidsdager, 10); //Henter data fra web-form
                     var Y = 390;
                     var R = 5;
                     context.beginPath();
@@ -263,8 +268,8 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Kanban eller Scrum-- Draw circle
-                    var X = 200 + parseInt(data.kanbanscrum, 10);
+                    // Kanban eller Scrum-- Tegn sirkel
+                    var X = 200 + parseInt(data.kanbanscrum, 10); //Henter data fra web-form
                     var Y = 430;
                     var R = 5;
                     context.beginPath();
@@ -282,7 +287,7 @@
                   .then(data => {
       
       
-                    // Key showing which color is which group member
+                    
                     context.font = '15px Arial';
                     context.fillStyle = "#000000";
                     context.fillText('Victoria', 750, 60);
@@ -297,7 +302,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Day or Night -- Draw circle
+                    
                     var X = 200 + parseInt(data.natteravn, 10);
                     var Y = 30;
                     var R = 5;
@@ -309,7 +314,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Motivation -- Draw circle
+                   
                     var X = 200 + parseInt(data.jobbesammen, 10);
                     var Y = 70;
                     var R = 5;
@@ -321,7 +326,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.grundig, 10);
                     var Y = 110;
                     var R = 5;
@@ -333,7 +338,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.snakke, 10);
                     var Y = 150;
                     var R = 5;
@@ -345,7 +350,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.oppgaven, 10);
                     var Y = 190;
                     var R = 5;
@@ -357,7 +362,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.avbrutt, 10);
                     var Y = 230;
                     var R = 5;
@@ -369,7 +374,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.video, 10);
                     var Y = 270;
                     var R = 5;
@@ -381,7 +386,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.jobbe, 10);
                     var Y = 310;
                     var R = 5;
@@ -393,7 +398,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.tidlig, 10);
                     var Y = 350;
                     var R = 5;
@@ -405,7 +410,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.arbeidsdager, 10);
                     var Y = 390;
                     var R = 5;
@@ -417,7 +422,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                   
                     var X = 200 + parseInt(data.kanbanscrum, 10);
                     var Y = 430;
                     var R = 5;
@@ -437,7 +442,7 @@
                   .then(data => {
       
       
-                    // Key showing which color is which group member
+                    
                     context.font = '15px Arial';
                     context.fillStyle = "#000000";
                     context.fillText('Kristian', 750, 90);
@@ -452,7 +457,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Day or Night -- Draw circle
+                    
                     var X = 200 + parseInt(data.natteravn, 10);
                     var Y = 30;
                     var R = 5;
@@ -464,7 +469,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Motivation -- Draw circle
+                    
                     var X = 200 + parseInt(data.jobbesammen, 10);
                     var Y = 70;
                     var R = 5;
@@ -476,7 +481,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.grundig, 10);
                     var Y = 110;
                     var R = 5;
@@ -488,7 +493,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.snakke, 10);
                     var Y = 150;
                     var R = 5;
@@ -500,7 +505,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.oppgaven, 10);
                     var Y = 190;
                     var R = 5;
@@ -512,7 +517,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.avbrutt, 10);
                     var Y = 230;
                     var R = 5;
@@ -524,7 +529,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.video, 10);
                     var Y = 270;
                     var R = 5;
@@ -536,7 +541,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                   
                     var X = 200 + parseInt(data.jobbe, 10);
                     var Y = 310;
                     var R = 5;
@@ -548,7 +553,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.tidlig, 10);
                     var Y = 350;
                     var R = 5;
@@ -560,7 +565,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.arbeidsdager, 10);
                     var Y = 390;
                     var R = 5;
@@ -572,7 +577,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.kanbanscrum, 10);
                     var Y = 430;
                     var R = 5;
@@ -590,7 +595,7 @@
                   .then(data => {
       
       
-                    // Key showing which color is which group member
+                    
                     context.font = '15px Arial';
                     context.fillStyle = "#000000";
                     context.fillText('Amanda', 750, 120);
@@ -605,7 +610,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Day or Night -- Draw circle
+                    
                     var X = 200 + parseInt(data.natteravn, 10);
                     var Y = 30;
                     var R = 5;
@@ -617,7 +622,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Motivation -- Draw circle
+                    
                     var X = 200 + parseInt(data.jobbesammen, 10);
                     var Y = 70;
                     var R = 5;
@@ -629,7 +634,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                   
                     var X = 200 + parseInt(data.grundig, 10);
                     var Y = 110;
                     var R = 5;
@@ -641,7 +646,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.snakke, 10);
                     var Y = 150;
                     var R = 5;
@@ -653,7 +658,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.oppgaven, 10);
                     var Y = 190;
                     var R = 5;
@@ -665,7 +670,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.avbrutt, 10);
                     var Y = 230;
                     var R = 5;
@@ -677,7 +682,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.video, 10);
                     var Y = 270;
                     var R = 5;
@@ -689,7 +694,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.jobbe, 10);
                     var Y = 310;
                     var R = 5;
@@ -701,7 +706,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.tidlig, 10);
                     var Y = 350;
                     var R = 5;
@@ -713,7 +718,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.arbeidsdager, 10);
                     var Y = 390;
                     var R = 5;
@@ -725,7 +730,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.kanbanscrum, 10);
                     var Y = 430;
                     var R = 5;
@@ -744,7 +749,7 @@
                   .then(data => {
       
       
-                    // Key showing which color is which group member
+                    
                     context.font = '15px Arial';
                     context.fillStyle = "#000000";
                     context.fillText('Samuel', 750, 150);
@@ -759,7 +764,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Day or Night -- Draw circle
+                    
                     var X = 200 + parseInt(data.natteravn, 10);
                     var Y = 30;
                     var R = 5;
@@ -771,7 +776,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Motivation -- Draw circle
+                    
                     var X = 200 + parseInt(data.jobbesammen, 10);
                     var Y = 70;
                     var R = 5;
@@ -783,7 +788,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.grundig, 10);
                     var Y = 110;
                     var R = 5;
@@ -795,7 +800,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.snakke, 10);
                     var Y = 150;
                     var R = 5;
@@ -807,7 +812,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.oppgaven, 10);
                     var Y = 190;
                     var R = 5;
@@ -819,7 +824,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.avbrutt, 10);
                     var Y = 230;
                     var R = 5;
@@ -831,7 +836,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.video, 10);
                     var Y = 270;
                     var R = 5;
@@ -843,7 +848,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.jobbe, 10);
                     var Y = 310;
                     var R = 5;
@@ -855,7 +860,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.tidlig, 10);
                     var Y = 350;
                     var R = 5;
@@ -867,7 +872,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.arbeidsdager, 10);
                     var Y = 390;
                     var R = 5;
@@ -879,7 +884,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.kanbanscrum, 10);
                     var Y = 430;
                     var R = 5;
@@ -897,7 +902,7 @@
                   .then(data => {
       
       
-                    // Key showing which color is which group member
+                    
                     context.font = '15px Arial';
                     context.fillStyle = "#000000";
                     context.fillText('Casper', 750, 180);
@@ -912,7 +917,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Day or Night -- Draw circle
+                    
                     var X = 200 + parseInt(data.natteravn, 10);
                     var Y = 30;
                     var R = 5;
@@ -924,7 +929,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Motivation -- Draw circle
+                    
                     var X = 200 + parseInt(data.jobbesammen, 10);
                     var Y = 70;
                     var R = 5;
@@ -936,7 +941,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.grundig, 10);
                     var Y = 110;
                     var R = 5;
@@ -948,7 +953,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.snakke, 10);
                     var Y = 150;
                     var R = 5;
@@ -960,7 +965,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.oppgaven, 10);
                     var Y = 190;
                     var R = 5;
@@ -972,7 +977,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.avbrutt, 10);
                     var Y = 230;
                     var R = 5;
@@ -984,7 +989,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.video, 10);
                     var Y = 270;
                     var R = 5;
@@ -996,7 +1001,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.jobbe, 10);
                     var Y = 310;
                     var R = 5;
@@ -1008,7 +1013,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                   
                     var X = 200 + parseInt(data.tidlig, 10);
                     var Y = 350;
                     var R = 5;
@@ -1020,7 +1025,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.arbeidsdager, 10);
                     var Y = 390;
                     var R = 5;
@@ -1032,7 +1037,7 @@
                     context.strokeStyle = "black";
                     context.stroke();
       
-                    // Optimist or Pesimist -- Draw circle
+                    
                     var X = 200 + parseInt(data.kanbanscrum, 10);
                     var Y = 430;
                     var R = 5;
@@ -1050,7 +1055,7 @@
         </section>
       
     </main>
-        
+  <!-- FOOTER DEL 1 SOM DELER BUNNSEKSJON INN I TRE VERTIKALE DELER -->      
     <footer>
     <section class="footer-top">
       <div class="card">
@@ -1079,6 +1084,7 @@
         
       </div>
     </section>
+  <!-- FOOTER DEL2 -->
     <section class="footer-end">
       <p>2022 @ All rights reserved</p>
     </section>
