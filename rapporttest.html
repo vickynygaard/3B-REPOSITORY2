@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Drawing lines on canvas</title>
+        <style>
+            #myCanvas{
+                background-color: white;
+                border: 1px solid black;
+            }
+        </style>
+     </head>
+
+    <body>
+        <script>
+            function draw(){
+                var ctx = document.getElementById("myCanvas").getContext("2d");
+                ctx.moveTo(0,50);
+                ctx.lineTo(800,50);
+                ctx.moveTo(0,100);
+                ctx.lineTo(800,100);
+                ctx.moveTo(0,150);
+                ctx.lineTo(800,150);
+                ctx.moveTo(0,200);
+                ctx.lineTo(800,200);
+                ctx.moveTo(0,250);
+                ctx.lineTo(800,250);
+                ctx.moveTo(0,300);
+                ctx.lineTo(800,300);
+                ctx.moveTo(0,350);
+                ctx.lineTo(800,350);
+                ctx.moveTo(0,400);
+                ctx.lineTo(800,400);
+                ctx.moveTo(0,450);
+                ctx.lineTo(800,450);
+                ctx.strokeStyle="#000000";
+                ctx.stroke();
+            }
+            window.onload = draw;
+        </script>
+        <canvas id="myCanvas" width="800" height="500">
+        
+
+    </html>

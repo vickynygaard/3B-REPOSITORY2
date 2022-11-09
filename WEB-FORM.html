@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+    <title>Gruppe oppgave - How We Roll</title>
+    <meta charset="utf-8">
+    <meta name="description" content="How We Roll">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+        <div class="logo">
+        <a href="index.html"><img src="images/uialogo1.jpg" height="60px" alt="UIA logo"></a>
+        <a href="index.html"><p>How We Roll</p></a>
+      </div>
+      <nav>
+        <a href="index.html" class="active">Hjem</a>
+        <a href="kontaktinfo.html">Kontakt info</a>
+        <a href="møtereferat.html">Møte referat</a>
+        <a href="WEB-RAPPORT.html">WEB-RAPPORT</a>
+      </nav>
+    </header>
+    <main>
+      <section class="top-section">
+        <div class="title-text">
+          <h1>Gruppe prosjekt <br><p>"How We Roll"</p></h1>
+        </div>
+     </section>
+    </main>
+
+
+    <div class="container centered"></div>
+ <form>
+      
+
+        <p><label for="navn">Fornavn</label>
+          <input type="text" name="navn" id="navn" /></p>
+
+     <p><b>Hvilket av alternativene foretrekker du?</b></p>
+
+<p>
+  <label for="natteravn">Morgenfugl</label>
+  <input type="range" id="natteravn" name="natteravn" value="100" min="0" max="200">
+  <label for="natteravn">Natteravn</label>
+</p>
+
+<p>
+  <label for="jobbesammen">Jobbe sammen</label>
+  <input type="range" id="jobbesammen" name="jobbesammen" value="100" min="0" max="200"> 
+  <label for="natteravn">Tenke alene</label>
+</p>
+
+<p>
+  <label for="grundig">Gå i detalj</label>
+  <input type="range" id="grundig" name="grundig" value="100" min="0" max="200">
+  <label for="grundig">Hoppe rett i det</label>
+</p>
+
+<p>
+  <label for="snakke">Snakke om det</label>
+  <input type="range" id="snakke" name="snakke" value="100" min="0" max="200"> 
+  <label for="snakke">Gå videre</label>
+</p>
+
+<p>
+  <label for="oppgaven">Forstå oppgaven i plenum</label>
+  <input type="range" id="oppgaven" name="oppgaven" value="100" min="0" max="200"> 
+  <label for="oppgaven">Forstå oppgaven selv</label>
+</p>
+
+<p>
+  <label for="avbrutt">Avtal samtale</label>
+  <input type="range" id="avbrutt" name="avbrutt" value="100" min="0" max="200">
+  <label for="oppgaven">Samtale når som helst </label>
+</p>
+
+<p>
+  <label for="video">Video samtale</label>
+  <input type="range" id="video" name="video" value="100" min="0" max="200"> 
+  <label for="oppgaven">Tekst</label>
+</p>
+
+
+<p>
+  <label for="jobbe">Jobbe 09-17</label>
+  <input type="range" id="jobbe" name="jobbe" value="100" min="0" max="200"> 
+  <label for="oppgaven">Ingen timeplan</label>
+</p>
+
+<p>
+  <label for="tidlig">Tidlig lunsj</label>
+  <input type="range" id="tidlig" name="tidlig" value="100" min="0" max="200"> 
+  <label for="oppgaven">Sen lunsj</label>
+</p>
+
+<p>
+  <label for="arbeidsdager">Fem korte arbeidsdager</label>
+  <input type="range" id="arbeidsdager" name="arbeidsdager" value="100" min="0" max="200"> 
+  <label for="oppgaven">Fire lange arbeidsdager</label>
+</p>
+
+<p>
+  <label for="kanbanscrum">Kanban</label>
+  <input type="range" id="kanbanscrum" name="kanbanscrum" value="100" min="0" max="200"> 
+  <label for="oppgaven">Scrum</label>
+</p>
+
+<!--Send knappen-->
+<button type="submit">Send</button>
+
+</form>
+
+<hr>
+<p>JSON Output</p>
+<!--Et lite output console for å vise JSON dataen-->
+<div>
+    <!--Her skal JSON data som vi får fra responsen vises-->
+    <pre id="output"></pre>
+
+    <!--Lenk til JSON data på serveren. Brukes til rapporten-->
+    <a id="json-api" href="" target="_blank"></a>
+    <div>
+</div>
+
+
+
+<script>
+async function postData(url = '', data = {}) {
+       
+       const response = await fetch(url, {
+           method: 'POST', 
+           mode: 'cors', 
+           cache: 'no-cache',
+           credentials: 'same-origin', 
+           headers: {
+               'Content-Type': 'application/json',
+                
+           },
+           redirect: 'follow', 
+           referrerPolicy: 'no-referrer', 
+           body: JSON.stringify(data) 
+       });
+       return response.json(); 
+   }
+
+   function handleSubmit(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        const formJSON = Object.fromEntries(data.entries());
+        const results = document.querySelector('pre');
+        postData('https://bacit.info/', formJSON)
+        .then(data => {
+           results.innerText = JSON.stringify(data, null, 2);
+           document.querySelector("#json-api").innerHTML = "Open JSON data"
+           document.querySelector("#json-api").href = `https://bacit.info/hwr/${data.time}-${data.trxid}.json`
+        });
+   }
+   const form = document.querySelector('form');
+   form.addEventListener('submit', handleSubmit);
+
+</script>
+    
+
+</body>
+
+<footer>
+  <section class="footer-top">
+    <div class="card">
+      <h5>Gruppe medlemmer</h5>
+      <p>
+        Iselin Trondsen <br>
+        Casper Døviken <br>
+        Kristian Follegg <br>
+        Samuel Systad <br>
+        Victoria Nygård <br>
+        Amanda Fiona <br>
+      </p>
+    </div>
+    <div class="card">
+      <h4>IT og Informasjonssystemer</h4>
+      <p>
+        Vi er studenter ved UIA. Noen av oss tar et årsstudium, og noen tar en bachelor i IT og Informasjonssystemer. 
+        Denne oppgaven har vi fått i faget IS-114 - Samskaping - Kommunikasjon og prosjektarbeid. 
+      </p>
+    </div>
+    <div class="card">
+      <h5>Universitetet i Agder</h5>
+      <p>
+        Kristiansand
+      </p>
+      
+    </div>
+  </section>
+  <section class="footer-end">
+    
+    <p>2022 @ All rights reserved</p>
+  </section>
+</footer>
+
+</html>

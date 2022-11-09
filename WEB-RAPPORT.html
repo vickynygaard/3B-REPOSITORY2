@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+    <title>How We Roll - WEB-RAPPORT</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Felles-skapet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html"><img src="images/uialogo1.jpg" height="60px" alt="UIA logo"></a>
+        <a href="index.html"><p>How We Roll</p></a>
+      </div>
+      <nav>
+        <a href="index.html">Hjem</a>
+        <a href="kontaktinfo.html">Kontakt info</a>
+        <a href="møtereferat.html">Møte Referat</a>
+        <a href="WEB-RAPPORT" class="active">WEB-RAPPORT</a>
+        
+      </nav>
+    </header>
+    
+
+      <body>
+      <main>
+        <h1 class="overskrift">Felles-Skapet</h1>
+
+        <section class="canvas">
+          <canvas id="report"><canvas></canvas>
+          
+          <script>
+      
+                 var canvas = document.getElementById('report');
+                  canvas.width  = 800;
+                  canvas.height = 500;
+                  var context = canvas.getContext('2d');
+
+                 fetch("https://bacit.info/hwr/20221109092536-d1713230056f555f3867b008d906ff74.json", {cache: 'no-cache'})
+                  .then(response => response.json())
+                  .then(data => {
+                    context.font = '15px Arial';
+                    context.fillStyle = "#000000";
+                    context.fillText('Morgen fugl ', 100, 32);
+                    context.fillText('Natteravn ', 425, 32);
+                    context.fillText('Jobbe sammen', 80, 72);
+                    context.fillText('Tenke Alene', 425, 72);
+                    context.fillText('Gå i detalj', 110, 112);
+                    context.fillText('Hoppe rett i det', 425, 112);
+                    context.fillText('Snakke om det', 75, 152);
+                    context.fillText('Gå videre', 425, 152);
+                    context.fillText('Forstå oppgaven i plenum', 0, 192);
+                    context.fillText('Forstå oppgaven alene', 425, 192);
+                    context.fillText('Avtale Samtale', 75, 232);
+                    context.fillText('Ta en samtale når som helst', 425, 232);
+                    context.fillText('Video samtale', 80, 272);
+                    context.fillText('Tekst kommunikasjon', 425, 272);
+                    context.fillText('Jobbe 09-17', 90, 312);
+                    context.fillText('Ingen fast timeplan', 425, 312);
+                    context.fillText('Tidlig', 140, 352);
+                    context.fillText('Sen lunsj', 425, 352);
+                    context.fillText('Fem korte arbeidsdager', 15, 392);
+                    context.fillText('Fire lange arbeidsdager', 425, 392);
+                    context.fillText('Kanban', 125, 432);
+                    context.fillText('Scrum', 425, 432);
+      
+      
+                    // Key showing which color is which group member
+                    context.font = '20x Arial';
+                    context.fillStyle = "#000000";
+                    context.fillText('Iselin', 750, 30);
+                    var X = 720;
+                    var Y = 26;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "red";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Morgenfugl eller Nattugle -- Draw line
+                    context.beginPath();
+                    context.moveTo(200,30);
+                    context.lineTo(400,30);
+      
+                    // Jobbe sammen eller tenke alene -- Draw line
+                    context.moveTo(200,70);
+                    context.lineTo(400,70);
+                    context.stroke();
+      
+                    // Gå i detalj eller hoppe rett i det -- Draw line
+                    context.moveTo(200,110);
+                    context.lineTo(400,110);
+                    context.stroke();
+      
+                    // Snakke om det eller Gå videre -- Draw line
+                    context.moveTo(200,150);
+                    context.lineTo(400,150);
+                    context.stroke();
+      
+                    // Forstå oppgaven i plenum eller Forstå oppgaven alene-- Draw line
+                    context.moveTo(200,190);
+                    context.lineTo(400,190);
+                    context.stroke();
+      
+                    // Avtale Samtale eller Ta en samtale når som helst -- Draw line
+                    context.moveTo(200,230);
+                    context.lineTo(400,230);
+                    context.stroke();
+      
+                    // Video samtale eller Tekst kommunikasjon -- Draw line
+                    context.moveTo(200,270);
+                    context.lineTo(400,270);
+                    context.stroke();
+      
+                    // Jobbe 09-17 eller Ingen fast timeplan -- Draw line
+                    context.moveTo(200,310);
+                    context.lineTo(400,310);
+                    context.stroke();
+      
+                    // Fem korte arbeidsdager eler Fire lange -- Draw line
+                    context.moveTo(200,350);
+                    context.lineTo(400,350);
+                    context.stroke();
+      
+                    // Tidlig lunsj eller Sen lunsj -- Draw line
+                    context.moveTo(200,390);
+                    context.lineTo(400,390);
+                    context.stroke();
+                    
+                    // Kanban eller Scrum -- Draw line
+                    context.moveTo(200,430);
+                    context.lineTo(400,430);
+                    context.stroke();
+      
+                    context.moveTo(200,430);
+                    context.lineTo(400,430);
+                    context.stroke();
+                    
+      
+      
+                    // Morgenfugl eller nattugle -- Draw circle
+                    var X = 200 + parseInt(data.natteravn, 10);
+                    var Y = 30;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "red";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Jobbe sammen eller tenke alene -- Draw circle
+                    var X = 200 + parseInt(data.jobbesammen, 10);
+                    var Y = 70;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "red";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Gå i detalj eller hoppe rett i det -- Draw circle
+                    var X = 200 + parseInt(data.grundig, 10);
+                    var Y = 110;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "red";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Gå i detalj eller hoppe rett i det -- Draw circle
+                    var X = 200 + parseInt(data.snakke, 10);
+                    var Y = 150;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "red";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Forstå oppgaven i plenum eller forstå oppgaven alene -- Draw circle
+                    var X = 200 + parseInt(data.oppgaven, 10);
+                    var Y = 190;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "red";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Avtale samtale eller ta en samtale når som helst-- Draw circle
+                    var X = 200 + parseInt(data.avbrutt, 10);
+                    var Y = 230;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "red";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Video samtale eller tekst kommunikasjon-- Draw circle
+                    var X = 200 + parseInt(data.video, 10);
+                    var Y = 270;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "red";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Jobbe 09-17 eller ingen fast timeplan -- Draw circle
+                    var X = 200 + parseInt(data.jobbe, 10);
+                    var Y = 310;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "red";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Tidlig eller sen lunsj -- Draw circle
+                    var X = 200 + parseInt(data.tidlig, 10);
+                    var Y = 350;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "red";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Fem korte eller fire lange arbeidsdager-- Draw circle
+                    var X = 200 + parseInt(data.arbeidsdager, 10);
+                    var Y = 390;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "red";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Kanban eller Scrum-- Draw circle
+                    var X = 200 + parseInt(data.kanbanscrum, 10);
+                    var Y = 430;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "red";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+                  });
+      
+      
+                  fetch("https://bacit.info/hwr/20221109092623-11a3b4ac2692d31bd56812ffcee3da04.json", {cache: 'no-cache'})
+                  .then(response => response.json())
+                  .then(data => {
+      
+      
+                    // Key showing which color is which group member
+                    context.font = '15px Arial';
+                    context.fillStyle = "#000000";
+                    context.fillText('Victoria', 750, 60);
+                    var X = 720;
+                    var Y = 56;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "lightgreen";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Day or Night -- Draw circle
+                    var X = 200 + parseInt(data.natteravn, 10);
+                    var Y = 30;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "lightgreen";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Motivation -- Draw circle
+                    var X = 200 + parseInt(data.jobbesammen, 10);
+                    var Y = 70;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "lightgreen";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.grundig, 10);
+                    var Y = 110;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "lightgreen";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.snakke, 10);
+                    var Y = 150;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "lightgreen";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.oppgaven, 10);
+                    var Y = 190;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "lightgreen";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.avbrutt, 10);
+                    var Y = 230;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "lightgreen";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.video, 10);
+                    var Y = 270;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "lightgreen";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.jobbe, 10);
+                    var Y = 310;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "lightgreen";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.tidlig, 10);
+                    var Y = 350;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "lightgreen";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.arbeidsdager, 10);
+                    var Y = 390;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "lightgreen";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.kanbanscrum, 10);
+                    var Y = 430;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "lightgreen";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+                  });
+
+                  
+      
+                  fetch("https://bacit.info/hwr/20221109190500-e0966bef7386a5f4daef838124b6ff1c.json", {cache: 'no-cache'})
+                  .then(response => response.json())
+                  .then(data => {
+      
+      
+                    // Key showing which color is which group member
+                    context.font = '15px Arial';
+                    context.fillStyle = "#000000";
+                    context.fillText('Kristian', 750, 90);
+                    var X = 720;
+                    var Y = 85;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "blue";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Day or Night -- Draw circle
+                    var X = 200 + parseInt(data.natteravn, 10);
+                    var Y = 30;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "blue";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Motivation -- Draw circle
+                    var X = 200 + parseInt(data.jobbesammen, 10);
+                    var Y = 70;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "blue";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.grundig, 10);
+                    var Y = 110;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "blue";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.snakke, 10);
+                    var Y = 150;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "blue";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.oppgaven, 10);
+                    var Y = 190;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "blue";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.avbrutt, 10);
+                    var Y = 230;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "blue";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.video, 10);
+                    var Y = 270;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "blue";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.jobbe, 10);
+                    var Y = 310;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "blue";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.tidlig, 10);
+                    var Y = 350;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "blue";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.arbeidsdager, 10);
+                    var Y = 390;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "blue";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.kanbanscrum, 10);
+                    var Y = 430;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "blue";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+                  });
+
+                  fetch("https://bacit.info/hwr/20221109190531-3fab6cdeca55793fece1923ede91c118.json", {cache: 'no-cache'})
+                  .then(response => response.json())
+                  .then(data => {
+      
+      
+                    // Key showing which color is which group member
+                    context.font = '15px Arial';
+                    context.fillStyle = "#000000";
+                    context.fillText('Amanda', 750, 120);
+                    var X = 720;
+                    var Y = 115;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "purple";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Day or Night -- Draw circle
+                    var X = 200 + parseInt(data.natteravn, 10);
+                    var Y = 30;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "purple";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Motivation -- Draw circle
+                    var X = 200 + parseInt(data.jobbesammen, 10);
+                    var Y = 70;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "purple";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.grundig, 10);
+                    var Y = 110;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "purple";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.snakke, 10);
+                    var Y = 150;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "purple";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.oppgaven, 10);
+                    var Y = 190;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "purple";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.avbrutt, 10);
+                    var Y = 230;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "purple";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.video, 10);
+                    var Y = 270;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "purple";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.jobbe, 10);
+                    var Y = 310;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "purple";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.tidlig, 10);
+                    var Y = 350;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "purple";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.arbeidsdager, 10);
+                    var Y = 390;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "purple";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.kanbanscrum, 10);
+                    var Y = 430;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "purple";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+                  });
+        
+
+                  fetch("https://bacit.info/hwr/20221109190556-14dd70f0cafdfd4d6d730dca6e8212a4.json", {cache: 'no-cache'})
+                  .then(response => response.json())
+                  .then(data => {
+      
+      
+                    // Key showing which color is which group member
+                    context.font = '15px Arial';
+                    context.fillStyle = "#000000";
+                    context.fillText('Samuel', 750, 150);
+                    var X = 720;
+                    var Y = 145;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "#fe019a";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Day or Night -- Draw circle
+                    var X = 200 + parseInt(data.natteravn, 10);
+                    var Y = 30;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "#fe019a";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Motivation -- Draw circle
+                    var X = 200 + parseInt(data.jobbesammen, 10);
+                    var Y = 70;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "#fe019a";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.grundig, 10);
+                    var Y = 110;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "#fe019a";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.snakke, 10);
+                    var Y = 150;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "#fe019a";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.oppgaven, 10);
+                    var Y = 190;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "#fe019a";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.avbrutt, 10);
+                    var Y = 230;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "#fe019a";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.video, 10);
+                    var Y = 270;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "#fe019a";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.jobbe, 10);
+                    var Y = 310;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "#fe019a";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.tidlig, 10);
+                    var Y = 350;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "#fe019a";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.arbeidsdager, 10);
+                    var Y = 390;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "#fe019a";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.kanbanscrum, 10);
+                    var Y = 430;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "orange";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+                  });
+
+                  fetch("https://bacit.info/hwr/20221109190619-186493d9afb043524bd053381e1f7484.json", {cache: 'no-cache'})
+                  .then(response => response.json())
+                  .then(data => {
+      
+      
+                    // Key showing which color is which group member
+                    context.font = '15px Arial';
+                    context.fillStyle = "#000000";
+                    context.fillText('Casper', 750, 180);
+                    var X = 720;
+                    var Y = 175;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "yellow";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Day or Night -- Draw circle
+                    var X = 200 + parseInt(data.natteravn, 10);
+                    var Y = 30;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "yellow";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Motivation -- Draw circle
+                    var X = 200 + parseInt(data.jobbesammen, 10);
+                    var Y = 70;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "yellow";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.grundig, 10);
+                    var Y = 110;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "yellow";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.snakke, 10);
+                    var Y = 150;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "yellow";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.oppgaven, 10);
+                    var Y = 190;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "yellow";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.avbrutt, 10);
+                    var Y = 230;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "yellow";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.video, 10);
+                    var Y = 270;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "yellow";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.jobbe, 10);
+                    var Y = 310;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "yellow";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.tidlig, 10);
+                    var Y = 350;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "yellow";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.arbeidsdager, 10);
+                    var Y = 390;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "yellow";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+      
+                    // Optimist or Pesimist -- Draw circle
+                    var X = 200 + parseInt(data.kanbanscrum, 10);
+                    var Y = 430;
+                    var R = 5;
+                    context.beginPath();
+                    context.arc(X, Y, R, 0, 2*Math.PI, false);
+                    context.fillStyle = "yellow";
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "black";
+                    context.stroke();
+                  });
+      
+          </script>
+          
+        </section>
+      
+    </main>
+        
+    <footer>
+    <section class="footer-top">
+      <div class="card">
+        <h5>Gruppe medlemmer</h5>
+        <p>
+          Iselin Trondsen <br>
+          Casper Døviken <br>
+          Kristian Follegg <br>
+          Samuel Systad <br>
+          Victoria Nygård <br>
+          Amanda Fiona <br>
+        </p>
+      </div>
+      <div class="card">
+        <h4>IT og Informasjonssystemer</h4>
+        <p>
+          Vi er studenter ved UIA. Noen av oss tar et årsstudium, og noen tar en bachelor i IT og Informasjonssystemer. 
+          Denne oppgaven har vi fått i faget IS-114 - Samskaping - Kommunikasjon og prosjektarbeid. 
+        </p>
+      </div>
+      <div class="card">
+        <h5>Universitetet i Agder</h5>
+        <p>
+          Kristiansand
+        </p>
+        
+      </div>
+    </section>
+    <section class="footer-end">
+      <p>2022 @ All rights reserved</p>
+    </section>
+  </footer>
+
+
+</body>
+</html>
