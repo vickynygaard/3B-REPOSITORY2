@@ -27,8 +27,12 @@
  <!-- SKJEMA SOM VISER DATA HENTET FRA WEB-FORM -->
       <body>
       <main>
-        <h1 class="overskrift">Felles-Skapet</h1>
- <!-- CANVAS 500X800 -->
+
+        <section class="overskrift">
+          <h1>Felles-skapet</h1>
+        </section>
+        
+ <!-- SETT CANVAS 500X800 -->
         <section class="canvas">
           <canvas id="report"><canvas></canvas>
   <!-- JAVASCRIPT HENTER CANVAS -->        
@@ -45,8 +49,8 @@
                   .then(data => {
                     context.font = '15px Arial';
                     context.fillStyle = "#000000";
-                    context.fillText('Morgen fugl ', 100, 32);
-                    context.fillText('Natteravn ', 425, 32);
+                    context.fillText('Morgen fugl', 100, 32);
+                    context.fillText('Natteravn', 425, 32);
                     context.fillText('Jobbe sammen', 80, 72);
                     context.fillText('Tenke Alene', 425, 72);
                     context.fillText('Gå i detalj', 110, 112);
