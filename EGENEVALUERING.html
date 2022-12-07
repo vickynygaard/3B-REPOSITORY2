@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- DOKUMENT INFORMASJON -->
+<html lang="en"><head>
+    <title>Gruppe oppgave - How We Roll</title>
+    <meta charset="utf-8">
+    <meta name="description" content="How We Roll">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+<!-- HEADER MED NAVIGASJONSBAR OG LOGO, HVIS DU TRYKKER PÅ DEN KOMMER DU TILBAKE TIL FREMSIDEN (INDEX) -->
+    <header>
+        <div class="logo">
+        <a href="index.html"><img src="images/uialogo1.jpg" height="60px" alt="UIA logo"></a>
+        <a href="index.html"><p>How We Roll</p></a>
+      </div>
+      <nav>
+        <a href="index.html" class="active">Hjem</a>
+        <a href="kontaktinfo.html">Kontakt info</a>
+        <a href="møtereferat.html">Møte referat</a>
+        <a href="WEB-RAPPORT.html">WEB-RAPPORT</a>
+      </nav>
+    </header>
+    <main>
+  <!-- FREMSIDE TOP SEKSJON PRESENTASJON AV GRUPPE OG PROSJEKT-->
+      <section class="top-section">
+        <div class="title-text">
+          <h1>Gruppe prosjekt <br><p>"How We Roll"</p></h1>
+        </div>
+     </section>
+    </main>
+
+  <!-- EGENEVALUERING KARTLEGGINGSSKJEMA SOM VISER <SELECT> ELEMENT  -->
+  <!-- SENTRERER FORM -->
+
+<form id="form">
+     <!-- INPUT BOKS TIL NAVN -->  
+      <p><label for="navn">Fornavn</label> 
+      <input type="text" name="navn" id="navn" required></p>
+
+      <p><b>Hvordan vil du vurdere evnene dine på en skala fra 1-10?</b></p>
+
+      <p>
+        <label for="programmering">Programmering</label>
+        <select id="programmering" name="programmering">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="skriving">Skriving</label>
+        <select id="skriving" name="skriving">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="design">Design</label>
+        <select id="design" name="design">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="samarbeidsevne">Samarbeidsevne</label>
+        <select id="samarbeidsevne" name="samarbeidsevne">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="læringsevne">Læringsevne</label>
+        <select id="læringsevne" name="læringsevne">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select>
+      </p>
+
+      <!--Send inn knapp-->
+      <input type="submit" value="Send inn">
+  </form>
+
+  <output id="output"></output>
+
+  <script>
+
+  </script>
+    
+</body>
+<!-- FOOTER DEL 1 SOM DELER BUNNSEKSJON INN I TRE VERTIKALE DELER -->
+<footer>
+  <section class="footer-top">
+    <div class="card">
+      <h5>Gruppe medlemmer</h5>
+      <p>
+        Iselin Trondsen <br>
+        Casper Døviken <br>
+        Kristian Follegg <br>
+        Samuel Systad <br>
+        Victoria Nygård <br>
+        Amanda Fiona <br>
+      </p>
+    </div>
+    <div class="card">
+      <h4>IT og Informasjonssystemer</h4>
+      <p>
+        Vi er studenter ved UIA. Noen av oss tar et årsstudium, og noen tar en bachelor i IT og Informasjonssystemer. 
+        Denne oppgaven har vi fått i faget IS-114 - Samskaping - Kommunikasjon og prosjektarbeid. 
+      </p>
+    </div>
+    <div class="card">
+      <h5>Universitetet i Agder</h5>
+      <p>
+        Kristiansand
+      </p>
+      
+    </div>
+  </section>
+  <!-- FOOTER DEL2 -->
+  <section class="footer-end">
+    
+    <p>2022 @ All rights reserved</p>
+  </section>
+</footer>
+</html>
